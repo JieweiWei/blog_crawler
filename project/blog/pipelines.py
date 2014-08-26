@@ -2,16 +2,19 @@
 
 import MySQLdb
 import sys
+from getpass import getpass
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 class BlogPipeline(object):
+    passwd = ''
     def __init__(self):
+        self.passwd = getpass('请输入mysql密码: ')
         try:
             conn = MySQLdb.connect(
                 host = 'localhost',
                 user = 'root',
-                passwd = '86185228', # your passwd
+                passwd = self.passwd, # your passwd
                 port = 3306,
             )
             cur = conn.cursor()
@@ -31,7 +34,7 @@ class BlogPipeline(object):
             conn = MySQLdb.connect(
                 host = 'localhost',
                 user = 'root',
-                passwd = '86185228',
+                passwd = self.passwd,
                 port = 3306,
                 db = 'blogJobbole_DB',
                 charset = 'utf8',

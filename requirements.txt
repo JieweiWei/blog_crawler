@@ -1,2 +1,5 @@
 Scrapy==0.24.1
-Twisted==13.2.0
+Twisted
+MySQL-python
+lxml
+pyOpenSSL
